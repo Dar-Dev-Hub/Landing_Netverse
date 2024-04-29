@@ -8,6 +8,7 @@ import CTA from "@/components/CTA";
 import Contact from "@/components/Contact";
 import Blog from "@/components/Blog";
 import DashboardPage from "./dashbord/page";
+import MainLayout from "@/components/LandingLayout/Layout";
 
 export const metadata: Metadata = {
   title: "Next.js Starter Template for SaaS Startups - Solid SaaS Boilerplate",
@@ -18,13 +19,16 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main>
-      <Blog />
-      <Hero />
-      <Feature />
-      <About />
-      <FeaturesTab />
-      <CTA />
-      <Contact />
+      <MainLayout>
+        <Blog />
+        <Hero />
+        <Feature />
+        <About />
+        <FeaturesTab />
+        <CTA />
+        <Contact />
+      </MainLayout>
+
     </main>
   );
 }

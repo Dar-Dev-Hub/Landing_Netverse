@@ -1,5 +1,6 @@
 import BlogData from "@/components/Blog/blogData";
 import BlogItem from "@/components/Blog/BlogItem";
+import MainLayout from "@/components/LandingLayout/Layout";
 import { Blog } from "@/types/blog";
 import { Metadata } from "next";
 import React from "react";
@@ -14,6 +15,7 @@ const BlogPage = () => {
 
   
   return (
+    <MainLayout>
     <>
       {/* <!-- ===== Blog Grid Start ===== --> */}
       <section className="py-20 lg:py-25 xl:py-30">
@@ -27,6 +29,7 @@ const BlogPage = () => {
       </section>
       {/* <!-- ===== Blog Grid End ===== --> */}
     </>
+    </MainLayout>
   );
 };
 

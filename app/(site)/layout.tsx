@@ -17,20 +17,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning={true}>
       <body className={`dark:bg-black ${inter.className}`} >
         <ThemeProvider
           enableSystem={false}
           attribute="class"
           defaultTheme="light"
         >
-          <Lines />
-          <Header />
-          <ToasterContext />
+
           {children}
-          <Footer />
-          <ScrollToTop />
+
         </ThemeProvider>
+        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.removeAttribute('cz-shortcut-listen');" }} />
+
       </body>
     </html>
   );

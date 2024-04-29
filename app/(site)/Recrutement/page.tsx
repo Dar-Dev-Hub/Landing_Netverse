@@ -1,5 +1,5 @@
-import Contact from "@/components/Contact";
 "use client";
+import MainLayout from "@/components/LandingLayout/Layout";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import React from "react";
@@ -14,6 +14,7 @@ const DocsPage = () => {
   }
 
   return (
+    <MainLayout>
     <>
       {/* <!-- ===== Contact Start ===== --> */}
       <section id="support" className="px-4 md:px-8 2xl:px-0">
@@ -237,6 +238,7 @@ const DocsPage = () => {
       </section>
       {/* <!-- ===== Contact End ===== --> */}
     </>
+    </MainLayout>
   );
 }
 export default DocsPage;

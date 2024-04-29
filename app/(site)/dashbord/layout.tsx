@@ -1,25 +1,15 @@
 "use client";
-import Lines from "@/components/Lines";
-import ScrollToTop from "@/components/ScrollToTop";
-import { ThemeProvider } from "next-themes";
+
 import { Inter } from "next/font/google";
+import { ThemeProvider } from "next-themes";
 import "../../globals.css";
+
 const inter = Inter({ subsets: ["latin"] });
 
-export default function DashboardLayout({children,}: any) {
-  return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`dark:bg-black ${inter.className}`}>
-        <ThemeProvider
-          enableSystem={false}
-          attribute="class"
-          defaultTheme="light"
-        >
-       <tbody>
-    {children}
-</tbody>
-        </ThemeProvider>
-      </body>
-    </html>
-  );
+export default function DashboardLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  return <section>{children}</section>
 }

@@ -24,7 +24,7 @@ const menuData: Menu[] = [
     id: 2.2,
     title: "Recrutement",
     newTab: false,
-    path: "/docs",
+    path: "/Recrutement",
   },
   // {
   //   id: 3,

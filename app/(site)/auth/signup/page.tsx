@@ -1,4 +1,5 @@
 import Signup from "@/components/Auth/Signup";
+import MainLayout from "@/components/LandingLayout/Layout";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -9,8 +10,11 @@ export const metadata: Metadata = {
 
 export default function Register() {
   return (
-    <>
+    <MainLayout>
+      <>
       <Signup />
     </>
+    </MainLayout>
+    
   );
 }

@@ -1,34 +1,33 @@
-"use client";
-import DashboardLayout from "./layout";
-import { useAuth } from "@/hooks/useAuth";
-import { useRouter } from 'next/navigation';
-import { useEffect, useState } from "react";
-import Dashbordc from "@/components/Dashbord/dashboard";
-
+"use client"
+import DashboardLayout from "./layout"
+import { useAuth } from "@/hooks/useAuth"
+import { useRouter } from 'next/navigation'
+import { useCallback, useEffect } from "react"
+import Dashbordc from "@/components/Dashbord/dashboard"
+import ProjectCard from "../wallets/page"
+// import useAuthorization from "@/components/Services/useAuthorization"
+import { useAuthorization } from "@/components/Services/useAuthorization"
 const DashboardPage: React.FC = () => {
   const router = useRouter(); // This line should be within your functional component
-  const { loggedIn } = useAuth();
-  const [isClient, setIsClient] = useState(false)
- 
-  useEffect(() => {
-    setIsClient(true)
-  }, []);
-  useEffect(() => {
-    if (loggedIn) {
-      router.push('/dashbord'); // Redirect to dashboard if logged in
-    }
-  }, [loggedIn, router]);
 
-  if (loggedIn) {
-    return (
-      <DashboardLayout>
-        <Dashbordc />
-      </DashboardLayout>
-    );
-  } else {
-    // You can also display a loading indicator here
-    return null;
-  }
+  const { authorizeUser } = useAuthorization({ router });
+  const memoizedAuthorizeUser = useCallback(authorizeUser, []);
+
+
+  useEffect(() => {
+    memoizedAuthorizeUser();
+  }, [memoizedAuthorizeUser]);
+
+  // useEffect(() => {
+  //   memoizedAuthorizeUser();
+  // }, [memoizedAuthorizeUser])
+  return (
+    <DashboardLayout>
+      <Dashbordc>
+        <ProjectCard title={"hello"} totalTasks={1000} />
+      </Dashbordc>
+    </DashboardLayout>
+  );
 };
 
 export default DashboardPage;

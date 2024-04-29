@@ -1,4 +1,5 @@
 import Signin from "@/components/Auth/Signin";
+import MainLayout from "@/components/LandingLayout/Layout";
 import { Metadata } from "next";
 import { useRouter } from "next/router";
 
@@ -11,9 +12,12 @@ export const metadata: Metadata = {
 const SigninPage = () => {
 
   return (
-    <>
+    <MainLayout>
+       <>
       <Signin />
     </>
+    </MainLayout>
+   
   );
 };
 

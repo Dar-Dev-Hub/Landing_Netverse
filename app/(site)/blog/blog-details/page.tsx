@@ -6,16 +6,16 @@ import { Metadata } from "next";
 import RelatedPost from "@/components/Blog/RelatedPost";
 import SharePost from "@/components/Blog/SharePost";
 import { Blog } from "@/types/blog";
+import MainLayout from "@/components/LandingLayout/Layout";
 
-const metadata: Metadata = {
-  title: "Blog Details Page - Solid SaaS Boilerplate",
-  description: "This is Blog details page for Solid Pro",
-  // other metadata
-};
 
 const SingleBlogPage: React.FC = () => {
-  const [selectedPost, setSelectedPost] = React.useState<Blog | null>(null);
+  const [selectedPost, setSelectedPost,] = React.useState<Blog | null>(null);
+  React.useEffect(() => {
+    document.title = 'Netverse - blog';
 
+  }, []);
+  
   // Function to handle post click
   const handlePostClick = (post) => {
     console.log("Post clicked:", post);
@@ -23,6 +23,8 @@ const SingleBlogPage: React.FC = () => {
   };
   return (
     <>
+        <MainLayout>
+
       <section className="pb-20 pt-35 lg:pb-25 lg:pt-45 xl:pb-30 xl:pt-50">
         <div className="mx-auto max-w-c-1390 px-4 md:px-8 2xl:px-0">
           <div className="flex flex-col-reverse gap-7.5 lg:flex-row xl:gap-12.5">
@@ -100,8 +102,13 @@ const SingleBlogPage: React.FC = () => {
           </div>
         </div>
       </section>
+      </MainLayout>
     </>
   );
 };
 
 export default SingleBlogPage;
+function setHasMounted(arg0: boolean) {
+  throw new Error("Function not implemented.");
+}
+

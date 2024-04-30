@@ -29,11 +29,10 @@ const CTA = () => {
               className="animate_left md:w-[70%] lg:w-1/2"
             >
               <h2 className="mb-4 w-11/12 text-3xl font-bold text-black dark:text-white xl:text-sectiontitle4">
-                Join With Us Today & Increase Your Productivity
+                Rejoignez-nous aujourd'hui et augmentez votre productivité ,
               </h2>
               <p>
-                To join our family just download our application from Play Store for android  or app store for IOS .
-              </p>
+              Pour rejoindre notre famille téléchargez simplement notre application depuis le Play Store pour Android ou l'App Store pour IOS.              </p>
             </motion.div>
             <motion.div
               variants={{
@@ -62,7 +61,7 @@ const CTA = () => {
                   className="hidden xl:block"
                 />
                 <a
-                  href="signup.html"
+                  href="https://www.upload-apk.com/en/4P8kUKF6OB4WXCL"
                   className="inline-flex items-center gap-2.5 rounded-full bg-black px-6 py-3 font-medium text-white hover:opacity-90 dark:bg-white dark:text-black"
                 >
                   Sign up free

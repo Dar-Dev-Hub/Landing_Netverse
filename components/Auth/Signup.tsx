@@ -6,13 +6,32 @@ import { useState } from "react";
 
 const Signup = () => {
   const [data, setData] = useState({
-    code:"",
-    phone:"",
-    firstName: "",
-    lastName: "",
+    first_name: "",
+    last_name: "",
+    phone: "",
+    country: "",
     email: "",
     password: "",
+    gender: "",
+    code: "",
   });
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    try {
+      const response = await fetch(`https://test.api.alphanetverse.com/api/v1/auth/register/${data.code}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+      // Handle response accordingly
+      console.log('Response:', response);
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
 
   return (
     <>
@@ -41,7 +60,6 @@ const Signup = () => {
                 opacity: 0,
                 y: -20,
               },
-
               visible: {
                 opacity: 1,
                 y: 0,
@@ -56,52 +74,87 @@ const Signup = () => {
             <h2 className="mb-15 text-center text-3xl font-semibold text-black dark:text-white xl:text-sectiontitle2">
               Create an Account
             </h2>
-            <form>
-              <div className="mb-7.5 flex flex-col gap-7.5 lg:mb-12.5 lg:flex-row lg:justify-between lg:gap-14">
-              <input
-                  name="Code"
-                  type="text"
-                  placeholder="code"
-                  value={data.code}
-                  onChange={(e) =>
-                    setData({ ...data, [e.target.name]: e.target.value })
-                  }
-                  className="w-full border-b border-stroke bg-transparent pb-3.5 focus:border-waterloo focus:placeholder:text-black focus-visible:outline-none dark:border-strokedark dark:focus:border-manatee dark:focus:placeholder:text-white lg:w-1/2"
-                />
-                <input
-                  name="Phone"
-                  type="text"
-                  placeholder="Phone number"
-                  value={data.phone}
-                  onChange={(e) =>
-                    setData({ ...data, [e.target.name]: e.target.value })
-                  }
-                  className="w-full border-b border-stroke bg-transparent pb-3.5 focus:border-waterloo focus:placeholder:text-black focus-visible:outline-none dark:border-strokedark dark:focus:border-manatee dark:focus:placeholder:text-white lg:w-1/2"
-                />
-                <input
-                  name="firstName"
-                  type="text"
-                  placeholder="First name"
-                  value={data.firstName}
-                  onChange={(e) =>
-                    setData({ ...data, [e.target.name]: e.target.value })
-                  }
-                  className="w-full border-b border-stroke bg-transparent pb-3.5 focus:border-waterloo focus:placeholder:text-black focus-visible:outline-none dark:border-strokedark dark:focus:border-manatee dark:focus:placeholder:text-white lg:w-1/2"
-                />
-
-                <input
-                  name="lastName"
-                  type="text"
-                  placeholder="Last name"
-                  value={data.lastName}
-                  onChange={(e) =>
-                    setData({ ...data, [e.target.name]: e.target.value })
-                  }
-                  className="w-full border-b border-stroke bg-transparent pb-3.5 focus:border-waterloo focus:placeholder:text-black focus-visible:outline-none dark:border-strokedark dark:focus:border-manatee dark:focus:placeholder:text-white lg:w-1/2"
-                />
+            <form onSubmit={handleSubmit}>
+              <div className="mb-7.5">
+                <div className="mb-7.5">
+                  <input
+                    name="Code"
+                    type="text"
+                    placeholder="Code"
+                    value={data.code}
+                    onChange={(e) =>
+                      setData({ ...data, [e.target.name]: e.target.value })
+                    }
+                    className="w-full border-b border-stroke bg-transparent pb-3.5 focus:border-waterloo focus:placeholder:text-black focus-visible:outline-none dark:border-strokedark dark:focus:border-manatee dark:focus:placeholder:text-white"
+                    required
+                  />
+                </div>
+                <div className="mb-7.5">
+                  <input
+                    name="Phone"
+                    type="text"
+                    placeholder="Phone number"
+                    value={data.phone}
+                    onChange={(e) =>
+                      setData({ ...data, [e.target.name]: e.target.value })
+                    }
+                    className="w-full border-b border-stroke bg-transparent pb-3.5 focus:border-waterloo focus:placeholder:text-black focus-visible:outline-none dark:border-strokedark dark:focus:border-manatee dark:focus:placeholder:text-white"
+                    required
+                  />
+                </div>
+                <div className="mb-7.5">
+                <select
+                  id="gender"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  required
+                >
+                  <option disabled selected>Choose a gender</option>
+                  <option value="M">Male</option>
+                  <option value="F">female</option>
+                </select>
+              </div>
+                <div className="mb-7.5">
+                  <input
+                    name="firstName"
+                    type="text"
+                    placeholder="First name"
+                    value={data.first_name}
+                    onChange={(e) =>
+                      setData({ ...data, [e.target.name]: e.target.value })
+                    }
+                    className="w-full border-b border-stroke bg-transparent pb-3.5 focus:border-waterloo focus:placeholder:text-black focus-visible:outline-none dark:border-strokedark dark:focus:border-manatee dark:focus:placeholder:text-white"
+                    required
+                  />
+                </div>
+                <div className="mb-7.5">
+                  <input
+                    name="lastName"
+                    type="text"
+                    placeholder="Last name"
+                    value={data.last_name}
+                    onChange={(e) =>
+                      setData({ ...data, [e.target.name]: e.target.value })
+                    }
+                    className="w-full border-b border-stroke bg-transparent pb-3.5 focus:border-waterloo focus:placeholder:text-black focus-visible:outline-none dark:border-strokedark dark:focus:border-manatee dark:focus:placeholder:text-white"
+                    required
+                  />
+                </div>
               </div>
 
-              <div className="mb-7.5 flex flex-col gap-7.5 lg:mb-12.5 lg:flex-row lg:justify-between lg:gap-14">
+              <div className="mb-7.5">
+                <select
+                  id="countries"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  required
+                >
+                  <option disabled selected>Choose a country</option>
+                  <option value="TN">Tunisia</option>
+                  <option value="LY">Libya</option>
+                  <option value="FR">France</option>
+                  <option value="MA">Maroco</option>
+                </select>
+              </div>
+              <div className="mb-7.5">
                 <input
                   name="email"
                   type="email"
@@ -110,9 +163,11 @@ const Signup = () => {
                   onChange={(e) =>
                     setData({ ...data, [e.target.name]: e.target.value })
                   }
-                  className="w-full border-b border-stroke bg-transparent pb-3.5 focus:border-waterloo focus:placeholder:text-black focus-visible:outline-none dark:border-strokedark dark:focus:border-manatee dark:focus:placeholder:text-white lg:w-1/2"
+                  className="w-full border-b border-stroke bg-transparent pb-3.5 focus:border-waterloo focus:placeholder:text-black focus-visible:outline-none dark:border-strokedark dark:focus:border-manatee dark:focus:placeholder:text-white"
+                  required
                 />
-
+              </div>
+              <div className="mb-7.5">
                 <input
                   name="password"
                   type="password"
@@ -121,13 +176,14 @@ const Signup = () => {
                   onChange={(e) =>
                     setData({ ...data, [e.target.name]: e.target.value })
                   }
-                  className="w-full border-b border-stroke bg-transparent pb-3.5 focus:border-waterloo focus:placeholder:text-black focus-visible:outline-none dark:border-strokedark dark:focus:border-manatee dark:focus:placeholder:text-white lg:w-1/2"
+                  className="w-full border-b border-stroke bg-transparent pb-3.5 focus:border-waterloo focus:placeholder:text-black focus-visible:outline-none dark:border-strokedark dark:focus:border-manatee dark:focus:placeholder:text-white"
+                  required
                 />
               </div>
 
-              <div className="flex flex-wrap gap-10 md:justify-between xl:gap-15">
-
+              <div className="flex justify-center">
                 <button
+                  type="submit"
                   aria-label="signup with email and password"
                   className="inline-flex items-center gap-2.5 rounded-full bg-black px-6 py-3 font-medium text-white duration-300 ease-in-out hover:bg-blackho dark:bg-btndark dark:hover:bg-blackho"
                 >

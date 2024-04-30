@@ -7,6 +7,7 @@ import React from "react";
 const DocsPage = () => {
   const [hasMounted, setHasMounted] = React.useState(false);
   React.useEffect(() => {
+    document.title = 'Netverse - Recrutement';
     setHasMounted(true);
   }, []);
   if (!hasMounted) {

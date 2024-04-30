@@ -11,8 +11,8 @@ import DashboardPage from "./dashbord/page";
 import MainLayout from "@/components/LandingLayout/Layout";
 
 export const metadata: Metadata = {
-  title: "Next.js Starter Template for SaaS Startups - Solid SaaS Boilerplate",
-  description: "This is Home for Solid Pro",
+  title: "Netverse - Home",
+  description: "This is Home for Netverse",
   // other metadata
 };
 

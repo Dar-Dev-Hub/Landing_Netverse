@@ -4,8 +4,8 @@ import { Metadata } from "next";
 import MainLayout from "@/components/LandingLayout/Layout";
 
 export const metadata: Metadata = {
-  title: "Support Page - Solid SaaS Boilerplate",
-  description: "This is Support page for Solid Pro",
+  title: "Support Page - Netverse",
+  description: "This is Support page for Netverse",
   // other metadata
 };
 

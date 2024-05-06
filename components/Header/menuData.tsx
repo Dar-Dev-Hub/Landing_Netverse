@@ -36,17 +36,11 @@ const menuData: Menu[] = [
   },
   {
     id: 5,
-    title: "Sign In",
+    title: " Netverse Client Site",
     newTab: false,
-    path: "/",
+    path: "https://www.google.com",
   },
-  {
-    id: 6,
-    title: "Sign Up",
-    newTab: false,
-    path: "/",
-  },
- 
+
 ];
 
 export default menuData;

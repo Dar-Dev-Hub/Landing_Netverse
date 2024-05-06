@@ -7,7 +7,6 @@ import FeaturesTab from "@/components/FeaturesTab";
 import CTA from "@/components/CTA";
 import Contact from "@/components/Contact";
 import Blog from "@/components/Blog";
-import DashboardPage from "./dashbord/page";
 import MainLayout from "@/components/LandingLayout/Layout";
 
 export const metadata: Metadata = {

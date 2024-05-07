@@ -61,7 +61,7 @@ const CTA = () => {
                   className="hidden xl:block"
                 />
                 <a
-                  href="https://www.upload-apk.com/en/4P8kUKF6OB4WXCL"
+                  href="https://s3.eu-west-3.amazonaws.com/netverse.apk/netverse1.0.2.apk"
                   className="inline-flex items-center gap-2.5 rounded-full bg-black px-6 py-3 font-medium text-white hover:opacity-90 dark:bg-white dark:text-black"
                 >
                   GET your app from here
